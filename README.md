@@ -69,30 +69,52 @@ docker images
 
 ---------------------TASK = 3---------------------------
 **run container on 4000**
+```
 docker run -p 4000:80 --name my-app node-app:0.1
+
+```
 **preview on localhost**
+```
 curl http://localhost:4000
+```
 **top and remove the container:**
+```
 docker stop my-app && docker rm my-app
+```
 **Now run the container in the background:**
+```
 docker run -p 4000:80 --name my-app -d node-app:0.1
 docker ps
+
+```
 **logs**
+
+```
 docker logs my-app
+```
 
 **Now modify the application.**
 **Edit app.js**
+```
 nano test/app.js
+
+```
 `Welcome to Cloud\n`
+
 **Build this new image and tag it with 0.2:**
+```
 docker build -t node-app:0.2 .
+```
 **Run another container with the new image version:**
+```
 docker run -p 8080:80 --name my-app-2 -d node-app:0.2
 docker ps
-
+```
 ---------------------TASK = 4---------------------------
 **you can look at the logs of a container:**
+```
 docker logs -f my-app-2
+```
 **inside the running container.**
 ```
 docker exec -it my-app-2 bash
@@ -100,15 +122,20 @@ docker inspect my-app-2
 ```
 
 ---------------------TASK = 5---------------------------
+
 Artifact Registry > Repositories.
 **Click Create Repository.**
+
 `my-repository` as the repository name.
+
 **Region and then choose the location ** `us-central1 (Iowa)`
 
 click > created
 
 **Configure authentication:**
+```
 gcloud auth configure-docker us-central1-docker.pkg.dev
+```
 **Enter "Y" when prompted**
 ```
 docker build -t us-central1-docker.pkg.dev/[project-id]/my-repository/node-app:0.2 .
@@ -116,10 +143,11 @@ docker images
 docker push us-central1-docker.pkg.dev/qwiklabs-gcp-03-494d50875ec0/my-repository/node-app:0.2
 ```
 ----------------DONE-----------------------------
-    
+```
 docker pull us-central1-docker.pkg.dev/[project-id]/my-repository/node-app:0.2
 docker run -p 4000:80 -d us-central1-docker.pkg.dev/[project-id]/my-repository/node-app:0.2
 curl http://localhost:4000
+```
 
 ----------------------------------------------------
 
