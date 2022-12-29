@@ -18,11 +18,13 @@ gcloud config list project
 ### START THE LAB
 
 ---------------------TASK = 1---------------------------
+
 **run a hello world container to get started:**
 docker run hello-world
 docker images
 docker ps
 docker ps -a
+
 
 ---------------------TASK = 2---------------------------
 mkdir test && cd test
@@ -68,6 +70,7 @@ docker build -t node-app:0.1 .
 docker images
 
 ---------------------TASK = 3---------------------------
+
 **run container on 4000**
 ```
 docker run -p 4000:80 --name my-app node-app:0.1
