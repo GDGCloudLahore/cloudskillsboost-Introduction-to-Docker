@@ -1,20 +1,22 @@
 
-##What you'll learn
-In this lab, you will learn how to do the following:
+## What you'll learn
 
+In this lab, you will learn how to do the following:
 - How to build, run, and debug Docker containers.
 - How to pull Docker images from Docker Hub and Google Artifact Registry.
 - How to push Docker images to Google Artifact Registry.
 
 
-###prepare the env 
+### Prepare the ENV... 
 **Activate Cloud Shell** 
+```
 project id = qwiklabs-gcp-00-cd8d380deef5
 gcloud auth list
 gcloud config set account qwiklabs-gcp-00-718a66edd301
 gcloud config list project
+```
+### START THE LAB
 
-#### start the lab ###############
 ---------------------TASK = 1---------------------------
 **run a hello world container to get started:**
 docker run hello-world
@@ -92,8 +94,10 @@ docker ps
 **you can look at the logs of a container:**
 docker logs -f my-app-2
 **inside the running container.**
+```
 docker exec -it my-app-2 bash
 docker inspect my-app-2
+```
 
 ---------------------TASK = 5---------------------------
 Artifact Registry > Repositories.
