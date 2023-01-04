@@ -28,6 +28,7 @@ docker ps -a
 
 
 ---------------------TASK = 2---------------------------
+
 mkdir test && cd test
 **create Dockerfile:**
 ```
@@ -115,6 +116,7 @@ docker run -p 8080:80 --name my-app-2 -d node-app:0.2
 docker ps
 ```
 ---------------------TASK = 4---------------------------
+
 **you can look at the logs of a container:**
 ```
 docker logs -f my-app-2
